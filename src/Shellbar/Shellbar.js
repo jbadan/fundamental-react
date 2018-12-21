@@ -23,32 +23,69 @@ export class Shellbar extends Component {
         // this.onResize = this.onResize.bind(this);
     }
 
-    backBtnHandler = event => {
-        event.preventDefault();
-        event.stopPropagation();
+    backBtnHandler = () => {
         this.setState({
             showCollapsedProductSwitcherMenu: false
         });
     };
 
     getCollapsedActions = () => {
+        let collapsedList = [];
+
+        //put all the Additional Actions in the list
         if (this.props.actions) {
-            let collapsedList = [...this.props.actions];
+            collapsedList = [...this.props.actions];
+        }
+
+        //Add the notification icon to the notifications object and add it to the list
+        //The notifications are placed after the additional actions
+
+        if (this.props.notifications) {
+            let collapsedNotifications = this.props.notifications;
+            collapsedNotifications.glyph = 'bell';
+            collapsedList.push(collapsedNotifications);
+        }
+
+        //Add the grid icon to the product switcher object and add it to the list
+        //The product switcher is placed after the notifications
+
+        if (this.props.productSwitcher) {
             let collapsedProductSwitcher = this.props.productSwitcher;
 
+            collapsedProductSwitcher.glyph = 'grid';
             collapsedProductSwitcher.callback = () => {
                 this.setState(prevState => ({
                     showCollapsedProductSwitcherMenu: !prevState.showCollapsedProductSwitcherMenu
                 }));
             };
 
-            collapsedList.push(this.props.productSwitcher);
-            if (this.props.searchInput) {
-                collapsedList.unshift(this.props.searchInput);
-            }
-            return collapsedList;
+            collapsedList.push(collapsedProductSwitcher);
         }
+
+        //Add the search icon to the search input object and add it to the list
+        //The search input is placed at the beginning of the list
+        if (this.props.searchInput) {
+            let collapsedSearchInput = this.props.searchInput;
+            collapsedSearchInput.glyph = 'search';
+            collapsedList.unshift(collapsedSearchInput);
+        }
+        return collapsedList;
     };
+
+
+    getNotificationsSum = () => {
+        let additionalActions = [...this.props.actions];
+        let additionalActionsSum = additionalActions.reduce((r, d) => r + d.notificationCount, 0);
+
+        if(this.notifications.notificationCount && this.notifications.notificationCount > 0) {
+            let totalSum = additionalActionsSum + this.notifications.notificationCount;
+            return totalSum;
+        } else {
+            return additionalActionsSum;
+        }
+        
+
+    }
 
     // componentWillMount() {
     //     this.setState({
@@ -82,21 +119,28 @@ export class Shellbar extends Component {
     render() {
         const {
             logo,
+            logoSAP,
             productTitle,
             productMenu,
             subtitle,
             copilot,
             searchInput,
             actions,
+            notifications,
             productSwitcher,
             productSwitcherList,
-            user,
-            userMenu
+            profile,
+            profileMenu
         } = this.props;
         return (
             <div className="fd-shellbar">
                 <div className="fd-shellbar__group fd-shellbar__group--start">
-                    <a className="fd-shellbar__logo">{logo}</a>
+                    {logo && <a className="fd-shellbar__logo">{logo}</a>}
+                    {logoSAP && (
+                        <a className="fd-shellbar__logo">
+                            <img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />
+                        </a>
+                    )}
                     <div className="fd-shellbar__product">
                         {productTitle && !productMenu && <span className="fd-shellbar__title">{productTitle}</span>}
                         {productMenu && (
@@ -208,7 +252,28 @@ export class Shellbar extends Component {
                                     </div>
                                 );
                             })}
-                        {actions && (
+                        {notifications && (
+                            <Popover
+                                alignment="right"
+                                control={
+                                    <div class="fd-shellbar__action fd-shellbar__action--collapsible">
+                                        <button class=" fd-button--shell sap-icon--bell" aria-label="Notifications">
+                                            <span class="fd-counter fd-counter--notification" aria-label="Unread count">
+                                                {notifications.notificationCount}
+                                            </span>
+                                        </button>
+                                    </div>
+                                }
+                                body={
+                                    notifications.notificationsBody ? (
+                                        notifications.notificationsBody
+                                    ) : (
+                                        <div>No notifications</div>
+                                    )
+                                }
+                            />
+                        )}
+                        {
                             <div className="fd-shellbar__action fd-shellbar__action--collapse">
                                 <div className="fd-shellbar-collapse">
                                     <Popover
@@ -220,7 +285,7 @@ export class Shellbar extends Component {
                                                         className="fd-counter fd-counter--notification"
                                                         aria-label="Unread count"
                                                     >
-                                                        {actions.reduce((r, d) => r + d.notificationCount, 0)}
+                                                        
                                                     </span>
                                                 </button>
                                             </div>
@@ -231,29 +296,25 @@ export class Shellbar extends Component {
                                                     <MenuList>
                                                         {this.state.collapsedActions.map((item, index) => {
                                                             return (
-                                                                <span onClick={e => e.stopPropagation()}>
-                                                                    <MenuItem
-                                                                        onclick={item.callback}
-                                                                        url={item.url}
-                                                                        link={item.link}
-                                                                        key={index}
-                                                                    >
-                                                                        {item.label}
-                                                                    </MenuItem>
-                                                                </span>
+                                                                <MenuItem
+                                                                    onclick={item.callback}
+                                                                    url={item.url}
+                                                                    link={item.link}
+                                                                    key={index}
+                                                                >
+                                                                    {item.label}
+                                                                </MenuItem>
                                                             );
                                                         })}
                                                     </MenuList>
                                                 ) : (
                                                     <MenuList>
-                                                        <span onClick={e => e.stopPropagation()}>
-                                                            <MenuItem>
-                                                                <span
-                                                                    className="fd-menu__item sap-icon--nav-back"
-                                                                    onClick={e => this.backBtnHandler(e)}
-                                                                />
-                                                            </MenuItem>
-                                                        </span>
+                                                        <MenuItem>
+                                                            <span
+                                                                className="fd-menu sap-icon--nav-back"
+                                                                onClick={this.backBtnHandler}
+                                                            />
+                                                        </MenuItem>
                                                         {productSwitcherList.map((item, index) => {
                                                             return (
                                                                 <MenuItem
@@ -262,7 +323,7 @@ export class Shellbar extends Component {
                                                                     link={item.link}
                                                                     key={index}
                                                                 >
-                                                                    {item.title}
+                                                                    <Icon glyph={item.glyph} /> {item.title}
                                                                 </MenuItem>
                                                             );
                                                         })}
@@ -273,31 +334,31 @@ export class Shellbar extends Component {
                                     />
                                 </div>
                             </div>
-                        )}
-                        {user && (
+                        }
+                        {profile && (
                             <div className="fd-shellbar__action fd-shellbar__action--show-always">
                                 <div className="fd-user-menu">
                                     <Popover
                                         alignment="right"
                                         control={
-                                            user.image ? (
+                                            profile.image ? (
                                                 <Identifier
                                                     size="xs"
                                                     modifier="circle"
-                                                    backgroundImageUrl={user.image}
+                                                    backgroundImageUrl={profile.image}
                                                 />
                                             ) : (
-                                                <Identifier size="xs" modifier="circle" color={user.colorAccent}>
-                                                    {user.initials}
+                                                <Identifier size="xs" modifier="circle" color={profile.colorAccent}>
+                                                    {profile.initials}
                                                 </Identifier>
                                             )
                                         }
                                         body={
-                                            userMenu && (
+                                            profileMenu && (
                                                 <Menu>
                                                     <MenuList>
-                                                        <MenuItem>{user.userName}</MenuItem>
-                                                        {userMenu.map((item, index) => {
+                                                        <MenuItem>{profile.userName}</MenuItem>
+                                                        {profileMenu.map((item, index) => {
                                                             return (
                                                                 <MenuItem
                                                                     onclick={item.callback}

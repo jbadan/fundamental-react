@@ -12,32 +12,32 @@ export class ShellbarComponent extends Component {
     simpleShellbarExampleCode = `<Shellbar
     logo={<img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />}
     productTitle="Corporate Portal"
-    user={this.user1}
-    userMenu={this.userMenu}
+    profile={this.profile1}
+    profileMenu={this.profileMenu}
 />
 
 ************************************ Data ************************************
 
-user1 = {
+profile1 = {
     initials: 'JS',
     userName: 'John Snow',
     colorAccent: 8
 };
 
-userMenu = [
+profileMenu = [
     { name: 'Settings', glyph: 'action-settings', size: 's', callback: () => alert('Settings selected!') },
     { name: 'Sign Out', glyph: 'log', size: 's', callback: () => alert('Sign Out selected!') }
 ];
 `;
 
     menuAndSearchShellbarExampleCode = `<Shellbar
-    logo={<img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />}
+    logoSAP
     productTitle="Corporate Portal"
     productMenu={this.productMenu}
     subtitle="Subtitle"
     searchInput={this.searchInput}
     user={this.user}
-    userMenu={this.userMenu}
+    profileMenu={this.profileMenu}
 />
 
 ************************************ Data ************************************
@@ -59,27 +59,27 @@ searchInput = {
     callback: () => alert('Search selected!')
 };
 
-user = {
+profile = {
     image: images('./headshot-male.jpg'),
     userName: 'John Snow'
 };
 
-userMenu = [
+profileMenu = [
     { name: 'Settings', glyph: 'action-settings', size: 's', callback: () => alert('Settings selected!') },
     { name: 'Sign Out', glyph: 'log', size: 's', callback: () => alert('Sign Out selected!') }
 ];
 `;
 
     shellbarExampleCode = `<Shellbar
-    logo={<img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />}
+    logoSAP
     productTitle="Corporate Portal"
     productMenu={this.productMenu}
     subtitle="Subtitle"
     copilot
     searchInput={this.searchInput2}
     actions={this.actions}
-    user={this.user}
-    userMenu={this.userMenu}
+    profile={this.profile}
+    profileMenu={this.profileMenu}
     productSwitcher={this.productSwitcher}
     productSwitcherList={this.productSwitcherList}
 />
@@ -142,12 +142,12 @@ actions = [
     }
 ];
 
-user = {
+uprofile = {
     image: images('./headshot-male.jpg'),
     userName: 'John Snow'
 };
 
-userMenu = [
+profileMenu = [
     { name: 'Settings', glyph: 'action-settings', size: 's', callback: () => alert('Settings selected!') },
     { name: 'Sign Out', glyph: 'log', size: 's', callback: () => alert('Sign Out selected!') }
 ];
@@ -179,15 +179,9 @@ productSwitcherList = [
 
     actions = [
         {
-            glyph: 'bell',
-            notificationCount: 21,
-            label: 'Notifications',
-            callback: () => alert('Notification selected!')
-        },
-        {
             glyph: 'settings',
             label: 'Settings',
-            notificationCount: 4,
+            notificationCount: 5,
             callback: () => alert('Settings selected!'),
             menu: (
                 <Menu>
@@ -198,21 +192,48 @@ productSwitcherList = [
                     </MenuList>
                 </Menu>
             )
+        },
+        {
+            glyph: 'arobase',
+            label: 'mail',
+            callback: () => alert('Mail selected!')
         }
     ];
 
-    user1 = {
+    notifications = {
+        notificationCount: 21,
+        label: 'Notifications',
+        notificationsBody: (
+            <Menu>
+                <MenuList>
+                    <MenuItem url="/">Notification 1</MenuItem>
+                    <MenuItem url="/">Notification 2</MenuItem>
+                    <MenuItem url="/">Notification 3</MenuItem>
+                </MenuList>
+            </Menu>
+        ),
+        noNotificationsBody: (
+            <Menu>
+                <MenuList>
+                    <MenuItem>There are no notifications</MenuItem>
+                </MenuList>
+            </Menu>
+        ),
+        callback: () => alert('Notification selected!')
+    };
+
+    profile1 = {
         initials: 'JS',
         userName: 'John Snow',
         colorAccent: 8
     };
 
-    user = {
+    profile = {
         image: images('./headshot-male.jpg'),
         userName: 'John Snow'
     };
 
-    userMenu = [
+    profileMenu = [
         { name: 'Settings', glyph: 'action-settings', size: 's', callback: () => alert('Settings selected!') },
         { name: 'Sign Out', glyph: 'log', size: 's', callback: () => alert('Sign Out selected!') }
     ];
@@ -225,32 +246,71 @@ productSwitcherList = [
     ];
 
     productSwitcherList = [
-        { title: 'Fiori Home', image: images('./01.png'), callback: () => alert('Fiori Home selected!') },
-        { title: 'S/4 HANA Cloud', image: images('./02.png'), callback: () => alert('S/4 HANA Cloud selected!') },
-        { title: 'Analytics Cloud', image: images('./03.png'), callback: () => alert('Analytics Cloud selected!') },
-        { title: 'Ariba', image: images('./04.png'), callback: () => alert('Ariba selected!') },
-        { title: 'SuccessFactors', image: images('./05.png'), callback: () => alert('SuccessFactors selected!') },
-        { title: 'Commerce Cloud', image: images('./06.png'), callback: () => alert('Commerce Cloud selected!') },
-        { title: 'Gigya', image: images('./07.png'), callback: () => alert('Gigya selected!') },
-        { title: 'Callidus Cloud', image: images('./08.png'), callback: () => alert('Callidus Cloud selected!') },
-        { title: 'Fieldglass', image: images('./09.png'), callback: () => alert('Fieldglass selected!') },
-        { title: 'Concur', image: images('./10.png'), callback: () => alert('Concur selected!') },
+        {
+            title: 'Fiori Home',
+            image: images('./01.png'),
+            glyph: 'home',
+            callback: () => alert('Fiori Home selected!')
+        },
+        {
+            title: 'S/4 HANA Cloud',
+            image: images('./02.png'),
+            glyph: 'cloud',
+            callback: () => alert('S/4 HANA Cloud selected!')
+        },
+        {
+            title: 'Analytics Cloud',
+            image: images('./03.png'),
+            glyph: 'business-objects-experience',
+            callback: () => alert('Analytics Cloud selected!')
+        },
+        { title: 'Ariba', image: images('./04.png'), glyph: 'activate', callback: () => alert('Ariba selected!') },
+        {
+            title: 'SuccessFactors',
+            image: images('./05.png'),
+            glyph: 'message-success',
+            callback: () => alert('SuccessFactors selected!')
+        },
+        {
+            title: 'Commerce Cloud',
+            image: images('./06.png'),
+            glyph: 'retail-store',
+            callback: () => alert('Commerce Cloud selected!')
+        },
+        { title: 'Gigya', image: images('./07.png'), glyph: 'customer-view', callback: () => alert('Gigya selected!') },
+        {
+            title: 'Callidus Cloud',
+            image: images('./08.png'),
+            glyph: 'globe',
+            callback: () => alert('Callidus Cloud selected!')
+        },
+        {
+            title: 'Fieldglass',
+            image: images('./09.png'),
+            glyph: 'work-history',
+            callback: () => alert('Fieldglass selected!')
+        },
+        { title: 'Concur', image: images('./10.png'), glyph: 'area-chart', callback: () => alert('Concur selected!') },
         {
             title: 'Cloud for Customer',
             image: images('./11.png'),
+            glyph: 'customer-view',
             callback: () => alert('Cloud for Customer selected!')
         },
-        { title: 'Cloud Portal', image: images('./12.png'), callback: () => alert('Cloud Portal selected!') }
+        {
+            title: 'Cloud Portal',
+            image: images('./12.png'),
+            glyph: 'customer',
+            callback: () => alert('Cloud Portal selected!')
+        }
     ];
 
     productSwitcher = {
-        label: 'Product Switcher',
-        glyph: 'grid'
+        label: 'Product Switcher'
     };
 
     searchInput = {
         label: 'Search',
-        glyph: 'search',
         placeholder: 'Enter a fruit',
         onSearch: function(searchTerm) {
             alert(`Search fired for ${searchTerm}`);
@@ -298,7 +358,16 @@ productSwitcherList = [
                 <Properties
                     type="Inputs"
                     properties={[
-                        { name: 'logo', description: '(required) for company branding.' },
+                        {
+                            name: 'logo',
+                            description:
+                                '(required/optional) provide an img tag for a logo other than the SAP logo. One of the two props (logo or logoSAP) should be set.'
+                        },
+                        {
+                            name: 'logoSAP',
+                            description:
+                                '(required/optional) renders the SAP logo in the shellbar. One of the two props (logo or logoSAP) should be set.'
+                        },
                         {
                             name: 'productTitle',
                             description: '(required) displays the current application when no product menu is used.'
@@ -310,10 +379,13 @@ productSwitcherList = [
                         },
                         { name: 'copilot', description: '(optional) for use with applications that utilize CoPilot.' },
                         { name: 'actions', description: '(optional) holds all product actions and links.' },
-                        { name: 'searchInput', description: '(optional) holds searchInput properties (placeholder, searchList, onEnter ).' },
-                        { name: 'user', description: '(required) user information like name, initials, etc.' },
                         {
-                            name: 'userMenu',
+                            name: 'searchInput',
+                            description: '(optional) holds searchInput properties (placeholder, searchList, onEnter ).'
+                        },
+                        { name: 'profile', description: '(required) user information like name, initials, etc.' },
+                        {
+                            name: 'profileMenu',
                             description: '(required) for user settings and application meta links such as Sign Out.'
                         },
                         { name: 'productSwitcher', description: '(optional) for navigating between products.' },
@@ -331,8 +403,9 @@ productSwitcherList = [
                     <Shellbar
                         logo={<img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />}
                         productTitle="Corporate Portal"
-                        user={this.user1}
-                        userMenu={this.userMenu}
+                        notifications={this.notifications}
+                        profile={this.profile1}
+                        profileMenu={this.profileMenu}
                     />
                 </DocsTile>
                 <DocsText>{this.simpleShellbarExampleCode}</DocsText>
@@ -346,13 +419,14 @@ productSwitcherList = [
                 </Description>
                 <DocsTile>
                     <Shellbar
-                        logo={<img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />}
+                        logoSAP
                         productTitle="Corporate Portal"
                         productMenu={this.productMenu}
                         subtitle="Subtitle"
+                        notifications={this.notifications}
                         searchInput={this.searchInput}
-                        user={this.user}
-                        userMenu={this.userMenu}
+                        profile={this.profile}
+                        profileMenu={this.profileMenu}
                     />
                 </DocsTile>
                 <DocsText>{this.menuAndSearchShellbarExampleCode}</DocsText>
@@ -366,15 +440,16 @@ productSwitcherList = [
                 </Description>
                 <DocsTile>
                     <Shellbar
-                        logo={<img src="//unpkg.com/fiori-fundamentals/dist/images/sap-logo.png" alt="SAP" />}
+                        logoSAP
                         productTitle="Corporate Portal"
                         productMenu={this.productMenu}
                         subtitle="Subtitle"
                         copilot
                         searchInput={this.searchInput2}
                         actions={this.actions}
-                        user={this.user}
-                        userMenu={this.userMenu}
+                        notifications={this.notifications}
+                        profile={this.profile}
+                        profileMenu={this.profileMenu}
                         productSwitcher={this.productSwitcher}
                         productSwitcherList={this.productSwitcherList}
                     />
