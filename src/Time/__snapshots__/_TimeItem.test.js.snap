@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TimeItem /> create TimeItem 1`] = `
+<div
+  className="fd-time__item"
+>
+  
+  <div
+    className="fd-time__input"
+  >
+    <input
+      aria-label="Hours"
+      className="fd-form__control "
+      maxLength="2"
+      name="hour"
+      onChange={[Function]}
+      placeholder="hh"
+      type="text"
+      value={10}
+    />
+  </div>
+  
+</div>
+`;
