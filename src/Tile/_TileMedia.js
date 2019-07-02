@@ -10,7 +10,8 @@ const TileMedia = props => {
         className
     );
 
-    return <div {...rest} className={tileMediaClasses}>{children}</div>;
+    return (
+        <div {...rest} className={tileMediaClasses}>{children}</div>);
 };
 
 TileMedia.displayName = 'Tile.Media';

@@ -22,11 +22,13 @@ class SideNav extends Component {
     handleSelect = (e, id) => {
         this.setState({
             selectedId: id
+        }, () => {
+            this.props.onItemSelect(e, id);
         });
     }
 
     render() {
-        const { children, className, icons, selectedId, ...rest } = this.props;
+        const { onItemSelect, children, className, icons, selectedId, ...rest } = this.props;
 
         const sideNavClasses = classnames(
             className,
@@ -38,15 +40,11 @@ class SideNav extends Component {
 
         return (
             <nav {...rest} className={sideNavClasses}>
-                {React.Children.map(children, (child) => {
-                    if (React.isValidElement(child)) {
-                        return React.cloneElement(child, {
-                            onItemSelect: this.handleSelect,
-                            selectedId: this.state.selectedId
-                        });
-                    } else {
-                        return child;
-                    }
+                {React.Children.toArray(children).map(child => {
+                    return React.cloneElement(child, {
+                        onItemSelect: this.handleSelect,
+                        selectedId: this.state.selectedId
+                    });
                 })}
             </nav>
         );
@@ -57,11 +55,17 @@ SideNav.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     icons: PropTypes.bool,
-    selectedId: PropTypes.string
+    selectedId: PropTypes.string,
+    onItemSelect: PropTypes.func
+};
+
+SideNav.defaultProps = {
+    onItemSelect: () => { }
 };
 
 SideNav.propDescriptions = {
     icons: 'Set to **true** to only render icons for each `SideNavListItem`.',
+    onItemSelect: 'Callback function when a navigation item is selected. Arguments passed are the event and the id of the selected item.',
     selectedId: 'The `id` of the selected `SideNavListItem`.'
 };
 

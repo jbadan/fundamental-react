@@ -334,34 +334,26 @@ describe('<SideNav />', () => {
                 element.getDOMNode().attributes['data-sample'].value
             ).toBe('Sample');
         });
+    });
 
-        test('should allow props to be spread to the SideNavList component', () => {
-            const element = mount(<SideNav.List data-sample='Sample'>
-                <SideNav.ListItem
-                    id='item-1'
-                    name='Link Item 1'
-                    url='#' />
-                <SideNav.ListItem
-                    id='item-2'
-                    name='Link Item 2'
-                    url='#' />
-                <SideNav.ListItem
-                    id='item-3'
-                    name='Link Item 3'
-                    url='#' />
-            </SideNav.List>);
+    describe('onItemSelect handler', () => {
+        test('should dispatch the onItemSelect callback with the event', () => {
+            let f = jest.fn();
+            const mockedEvent = { target: {} };
 
-            expect(
-                element.getDOMNode().attributes['data-sample'].value
-            ).toBe('Sample');
-        });
+            const element = mount(<SideNav data-sample='Sample' onItemSelect={f}>
+                <SideNav.List>
+                    <SideNav.ListItem
+                        id='item-1'
+                        name='Link Item 1'
+                        url='#' />
+                </SideNav.List>
+            </SideNav>);
 
-        test('should allow props to be spread to the SideNavList\'s h1 element', () => {
-            const element = mount(<SideNav.List title='test' titleProps={{ 'data-sample': 'Sample' }} />);
+            element.find('#item-1 a').simulate('click', mockedEvent);
 
-            expect(
-                element.find('h1').getDOMNode().attributes['data-sample'].value
-            ).toBe('Sample');
+            expect(f).toHaveBeenCalledTimes(1);
+            expect(f).toHaveBeenCalledWith(expect.objectContaining({ 'target': {} }), 'item-1');
         });
     });
 });

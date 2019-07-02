@@ -1,5 +1,6 @@
 import { ALERT_TYPES } from '../utils/constants';
 import classnames from 'classnames';
+import CustomPropTypes from '../utils/CustomPropTypes/CustomPropTypes';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -11,19 +12,23 @@ class Alert extends Component {
         };
     }
 
-    closeAlertHandler = () => {
+    closeAlertHandler = (e) => {
         this.setState({
             isActive: false
+        }, () => {
+            this.props.onCloseClicked(e);
         });
     };
 
     render() {
         const {
+            onCloseClicked,
             buttonProps,
             type,
             link,
             linkProps,
             linkText,
+            localizedText,
             dismissible,
             children,
             className,
@@ -50,9 +55,9 @@ class Alert extends Component {
                             <button
                                 {...buttonProps}
                                 aria-controls='j2ALl423'
-                                aria-label='Close'
+                                aria-label={localizedText.close}
                                 className='fd-alert__close'
-                                onClick={() => this.closeAlertHandler()} />
+                                onClick={this.closeAlertHandler} />
                         )}
                         {children}
                         {link && (
@@ -75,19 +80,35 @@ Alert.displayName = 'Alert';
 
 Alert.propTypes = {
     buttonProps: PropTypes.object,
+    children: PropTypes.node,
     className: PropTypes.string,
     dismissible: PropTypes.bool,
     link: PropTypes.string,
     linkProps: PropTypes.object,
     linkText: PropTypes.string,
-    type: PropTypes.oneOf(ALERT_TYPES)
+    localizedText: CustomPropTypes.i18n({
+        close: PropTypes.string
+    }),
+    type: PropTypes.oneOf(ALERT_TYPES),
+    onCloseClicked: PropTypes.func
+};
+
+Alert.defaultProps = {
+    localizedText: {
+        close: 'Close'
+    },
+    onCloseClicked: () => { }
 };
 
 Alert.propDescriptions = {
     dismissible: 'Set to **true** to show a dismiss button.',
     link: 'Value to be applied to the anchor\'s `href` attribute.',
     linkProps: 'Additional props to be spread to the link\'s `<a>` element.',
-    linkText: 'Localized display text of the link.'
+    linkText: 'Localized display text of the link.',
+    localizedTextShape: {
+        close: 'Value for aria-label on the close <button> element.'
+    },
+    onCloseClicked: 'Callback function passing event when close button is clicked.'
 };
 
 export default Alert;

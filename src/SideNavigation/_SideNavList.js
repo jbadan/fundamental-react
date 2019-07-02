@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import CustomPropTypes from '../utils/CustomPropTypes/CustomPropTypes';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -8,7 +9,7 @@ class SideNavList extends React.Component {
     }
 
     render() {
-        const { children, className, hasParent, onItemSelect, open, selectedId, title, titleProps, ...rest } = this.props;
+        const { children, className, hasParent, headingLevel, onItemSelect, open, selectedId, title, titleProps, ...rest } = this.props;
         const sideNavListClasses = classnames({
             'fd-side-nav__list': !hasParent,
             'fd-side-nav__sublist': hasParent
@@ -21,23 +22,21 @@ class SideNavList extends React.Component {
             className
         );
 
+        const HeadingTag = `h${headingLevel}`;
+
         const sideNavList = (
             <ul
                 {...rest}
                 aria-expanded={hasParent && open}
                 aria-hidden={hasParent && !open}
                 className={sideNavListClasses}>
-                {React.Children.map(children, (child) => {
-                    if (React.isValidElement(child)) {
-                        return React.cloneElement(child, {
-                            isSubItem: hasParent,
-                            onItemSelect: onItemSelect,
-                            selected: selectedId === child.props.id,
-                            selectedId: selectedId
-                        });
-                    } else {
-                        return child;
-                    }
+                {React.Children.toArray(children).map(child => {
+                    return React.cloneElement(child, {
+                        isSubItem: hasParent,
+                        onItemSelect: onItemSelect,
+                        selected: selectedId === child.props.id,
+                        selectedId: selectedId
+                    });
                 })}
             </ul>
         );
@@ -46,9 +45,9 @@ class SideNavList extends React.Component {
             return (
                 <div
                     className={sideNavHeaderlasses}>
-                    <h1 {...titleProps} className='fd-side-nav__title'>
+                    <HeadingTag {...titleProps} className='fd-side-nav__title'>
                         {title}
-                    </h1>
+                    </HeadingTag>
                     {sideNavList}
                 </div>
             );
@@ -62,11 +61,16 @@ SideNavList.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     hasParent: PropTypes.bool,
+    headingLevel: CustomPropTypes.range(2, 6),
     open: PropTypes.bool,
     selectedId: PropTypes.string,
     title: PropTypes.string,
     titleProps: PropTypes.object,
     onItemSelect: PropTypes.func
+};
+
+SideNavList.defaultProps = {
+    headingLevel: 3
 };
 
 SideNavList.propDescriptions = {

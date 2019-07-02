@@ -46,17 +46,18 @@ class TabGroup extends Component {
 
     // create tab list
     renderTabs = () => {
-        return React.Children.map(this.props.children, (child, index) => {
+        return React.Children.toArray(this.props.children).map((child, index) => {
             return this.cloneElement(child, index);
         });
     };
 
     // create content to show below tab list
     renderContent = () => {
-        return React.Children.map(this.props.children, (child, index) => {
+        return React.Children.toArray(this.props.children).map((child, index) => {
             return (
                 <TabContent
                     {...child.props.tabContentProps}
+                    key={index}
                     selected={this.state.selectedIndex === index}>
                     {child.props.children}
                 </TabContent>);
@@ -100,6 +101,7 @@ TabGroup.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     selectedIndex: PropTypes.number,
+    tabGroupProps: PropTypes.object,
     onTabClick: PropTypes.func
 };
 

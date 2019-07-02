@@ -1,15 +1,15 @@
 import classnames from 'classnames';
+import CustomPropTypes from '../utils/CustomPropTypes/CustomPropTypes';
 import FocusTrap from 'focus-trap-react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
-
 class Modal extends Component {
     // select body element to add Modal component too
     bodyElm = document.querySelector('body');
 
-    handleCloseClick = () => {
-        this.props.onClose();
+    handleCloseClick = (e) => {
+        this.props.onClose(e);
     };
 
     // check for Escape key press
@@ -30,7 +30,7 @@ class Modal extends Component {
     }
 
     render() {
-        const { children, title, actions, className, show, titleProps, closeProps, contentProps, headerProps, footerProps, bodyProps, ...rest } = this.props;
+        const { onClose, localizedText, children, title, actions, className, headingLevel, show, titleProps, closeProps, contentProps, headerProps, footerProps, bodyProps, ...rest } = this.props;
 
         const modalClasses = classnames(
             'fd-ui__overlay',
@@ -38,6 +38,8 @@ class Modal extends Component {
             'fd-overlay--modal',
             className
         );
+
+        const HeadingTag = `h${headingLevel}`;
 
         if (!show) {
             return null;
@@ -63,12 +65,12 @@ class Modal extends Component {
                                 className='fd-modal__content'
                                 role='document'>
                                 <div {...headerProps} className='fd-modal__header'>
-                                    <h1 {...titleProps} className='fd-modal__title'>
+                                    <HeadingTag {...titleProps} className='fd-modal__title'>
                                         {title}
-                                    </h1>
+                                    </HeadingTag>
                                     <button
                                         {...closeProps}
-                                        aria-label='close'
+                                        aria-label={localizedText.closeButton}
                                         className='fd-button--light fd-modal__close'
                                         onClick={this.handleCloseClick} />
                                 </div>
@@ -102,12 +104,27 @@ Modal.propTypes = {
     title: PropTypes.string.isRequired,
     actions: PropTypes.node,
     bodyProps: PropTypes.object,
+    children: PropTypes.node,
+    className: PropTypes.string,
     closeProps: PropTypes.object,
     contentProps: PropTypes.object,
     footerProps: PropTypes.object,
     headerProps: PropTypes.object,
+    headingLevel: CustomPropTypes.range(2, 6),
+    localizedText: CustomPropTypes.i18n({
+        closeButton: PropTypes.string
+    }),
     show: PropTypes.bool,
-    titleProps: PropTypes.object
+    titleProps: PropTypes.object,
+    onClose: PropTypes.func
+};
+
+Modal.defaultProps = {
+    headingLevel: 3,
+    localizedText: {
+        closeButton: 'Close'
+    },
+    onClose: () => { }
 };
 
 Modal.propDescriptions = {
@@ -117,6 +134,10 @@ Modal.propDescriptions = {
     contentProps: 'Additional props to be spread to the content section of the dialog.',
     footerProps: 'Additional props to be spread to the footer of the dialog.',
     headerProps: 'Additional props to be spread to the header of the dialog.',
+    localizedTextShape: {
+        closeButton: 'Aria-label for <button> element.'
+    },
+    onClose: 'Callback function passing event when close button is clicked.',
     show: 'Set to **true** to make the dialog visible.'
 };
 

@@ -1,4 +1,6 @@
 import classnames from 'classnames';
+import CustomPropTypes from '../utils/CustomPropTypes/CustomPropTypes';
+import Popover from '../Popover/Popover';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -106,12 +108,14 @@ class MultiInput extends Component {
 
     render() {
         const {
+            popoverProps,
             buttonProps,
             compact,
             className,
             data,
             listProps,
             inputProps,
+            localizedText,
             onTagsUpdate,
             placeHolder,
             tagProps,
@@ -143,12 +147,18 @@ class MultiInput extends Component {
                 {...rest}
                 className={multiInputClasses}>
                 <div className='fd-multi-input-field'>
-                    <div className='fd-popover'>
-                        <div className='fd-popover__control'>
+                    <Popover
+                        {...popoverProps}
+                        body={
+                            <nav className='fd-menu'>
+                                <ul {...listProps} className='fd-menu__list'>{this.createTagList(data)}</ul>
+                            </nav>
+                        }
+                        control={
                             <div
                                 aria-expanded={this.state.bShowList}
                                 aria-haspopup='true'
-                                aria-label='Image label'
+                                aria-label={localizedText.imageLabel}
                                 className='fd-combobox-control'>
                                 <div className={inputGroupClassNames}>
                                     <input
@@ -167,15 +177,8 @@ class MultiInput extends Component {
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                        <div
-                            aria-hidden={!this.state.bShowList}
-                            className='fd-popover__body fd-popover__body--no-arrow'>
-                            <nav className='fd-menu'>
-                                <ul {...listProps} className='fd-menu__list'>{this.createTagList(data)}</ul>
-                            </nav>
-                        </div>
-                    </div>
+                        }
+                        noArrow />
                 </div>
                 {this.state.tags.length > 0 ? (
                     <div {...tagProps} className='fd-multi-input-tags'>{this.createTags()}</div>
@@ -196,17 +199,27 @@ MultiInput.propTypes = {
     compact: PropTypes.bool,
     inputProps: PropTypes.object,
     listProps: PropTypes.object,
+    localizedText: CustomPropTypes.i18n({
+        imageLabel: PropTypes.string
+    }),
     placeHolder: PropTypes.string,
+    popoverProps: PropTypes.object,
     tagProps: PropTypes.object,
     onTagsUpdate: PropTypes.func
 };
 
 MultiInput.defaultProps = {
+    localizedText: {
+        imageLabel: 'Image label'
+    },
     onTagsUpdate: () => {}
 };
 
 MultiInput.propDescriptions = {
     data: 'Collection of items to display in the list.',
+    localizedTextShape: {
+        imageLabel: 'Aria-label in <div> element for image.'
+    },
     onTagsUpdate: 'Callback function when a tag is added or removed. Returns array of tags selected.',
     placeHolder: 'Localized placeholder text of the input.',
     tagProps: 'Additional props to be spread to the tags `<div>` element.'

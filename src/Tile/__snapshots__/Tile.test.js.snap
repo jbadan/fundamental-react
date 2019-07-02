@@ -7,11 +7,11 @@ exports[`<Tile /> create tile component 1`] = `
   <div
     className="fd-tile__content red"
   >
-    <h2
-      className="fd-tile__title"
+    <h3
+      className="fd-tile__title red"
     >
       Tile Title
-    </h2>
+    </h3>
     <p>
       Tile Description
     </p>
@@ -26,11 +26,11 @@ exports[`<Tile /> create tile component 2`] = `
   <div
     className="fd-tile__content"
   >
-    <h2
+    <h3
       className="fd-tile__title"
     >
       Tile Title
-    </h2>
+    </h3>
     <p>
       Tile Description
     </p>
@@ -41,7 +41,6 @@ exports[`<Tile /> create tile component 2`] = `
 exports[`<Tile /> create tile component 3`] = `
 <div
   className="fd-tile"
-  isButton={true}
 >
   <div
     className="fd-tile__media green"
@@ -54,11 +53,11 @@ exports[`<Tile /> create tile component 3`] = `
   <div
     className="fd-tile__content"
   >
-    <h2
+    <h3
       className="fd-tile__title"
     >
       Tile Title
-    </h2>
+    </h3>
     <p>
       Tile Description
     </p>
@@ -73,29 +72,33 @@ exports[`<Tile /> create tile component 4`] = `
   <div
     className="fd-tile__content"
   >
-    <h2
+    <h3
       className="fd-tile__title"
     >
       Tile Title
-    </h2>
+    </h3>
   </div>
   <div
     className="fd-tile__actions yellow"
   >
-    <span
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onTouchStart={[Function]}
+    <div
+      className="fd-popover"
     >
       <div
-        className="fd-popper__control fd-popover"
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
       >
-        <button
-          className="fd-button fd-button--standard sap-icon--vertical-grip"
-          onClick={[Function]}
-        />
+        <div
+          className="fd-popover__control"
+        >
+          <button
+            className="fd-button fd-button--standard sap-icon--vertical-grip"
+            onClick={[Function]}
+          />
+        </div>
       </div>
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -103,7 +106,6 @@ exports[`<Tile /> create tile component 4`] = `
 exports[`<Tile /> create tile component 5`] = `
 <div
   className="fd-tile"
-  isButton={true}
 >
   <div
     className="fd-tile__media"
@@ -116,11 +118,11 @@ exports[`<Tile /> create tile component 5`] = `
   <div
     className="fd-tile__content"
   >
-    <h2
+    <h3
       className="fd-tile__title"
     >
       Tile Title
-    </h2>
+    </h3>
     <p>
       Tile Description
     </p>
@@ -135,29 +137,33 @@ exports[`<Tile /> create tile component 6`] = `
   <div
     className="fd-tile__content"
   >
-    <h2
+    <h3
       className="fd-tile__title"
     >
       Tile Title
-    </h2>
+    </h3>
   </div>
   <div
     className="fd-tile__actions"
   >
-    <span
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onTouchStart={[Function]}
+    <div
+      className="fd-popover"
     >
       <div
-        className="fd-popper__control fd-popover"
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
       >
-        <button
-          className="fd-button fd-button--standard sap-icon--vertical-grip"
-          onClick={[Function]}
-        />
+        <div
+          className="fd-popover__control"
+        >
+          <button
+            className="fd-button fd-button--standard sap-icon--vertical-grip"
+            onClick={[Function]}
+          />
+        </div>
       </div>
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -165,24 +171,27 @@ exports[`<Tile /> create tile component 6`] = `
 exports[`<Tile /> create tile component 7`] = `
 <div
   className="fd-product-tile pink"
-  isButton={true}
 >
   <div
     className="fd-product-tile__media"
     style={
       Object {
-        "backgroundImage": "url(https://techne.yaas.io/images/product-thumbnail-wide.png)",
+        "backgroundImage": "url(www.image.com)",
       }
     }
   />
   <div
+    className="fd-tile__media"
+    productTile={true}
+  />
+  <div
     className="fd-product-tile__content"
   >
-    <h2
+    <h3
       className="fd-product-tile__title"
     >
       Tile Title
-    </h2>
+    </h3>
     <p>
       Tile Description
     </p>
@@ -195,70 +204,28 @@ exports[`<Tile /> create tile component 8`] = `
   className="fd-product-tile is-disabled"
 >
   <div
-    className="fd-product-tile__media blue"
+    className="fd-product-tile__media"
     style={
       Object {
-        "backgroundImage": "url(https://techne.yaas.io/images/product-thumbnail-wide.png)",
+        "backgroundImage": "url(www.image.com)",
       }
     }
   />
   <div
+    className="fd-tile__media blue"
+    productTile={true}
+  />
+  <div
     className="fd-product-tile__content blue"
   >
-    <h2
-      className="fd-product-tile__title"
+    <h3
+      className="fd-product-tile__title blue"
     >
       Tile Title
-    </h2>
+    </h3>
     <p>
       Tile Description
     </p>
-  </div>
-</div>
-`;
-
-exports[`<Tile /> create tile component 9`] = `
-<div
-  className="fd-tile-grid fd-tile-grid--3col blue"
->
-  <div
-    className="fd-tile fd-has-grid-row-span-2 fd-has-background-color-accent-7"
-  >
-    <div
-      className="fd-tile__content"
-    >
-      <h2
-        className="fd-tile__title"
-      >
-        Tile Title
-      </h2>
-      <p>
-        Tile Description
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Tile /> create tile component 10`] = `
-<div
-  className="fd-tile-grid fd-tile-grid--4col"
->
-  <div
-    className="fd-tile fd-has-grid-row-span-2 fd-has-background-color-accent-7"
-  >
-    <div
-      className="fd-tile__content"
-    >
-      <h2
-        className="fd-tile__title"
-      >
-        Tile Title
-      </h2>
-      <p>
-        Tile Description
-      </p>
-    </div>
   </div>
 </div>
 `;

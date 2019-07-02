@@ -70,6 +70,22 @@ describe('<Popover />', () => {
             noArrow />
     );
 
+    const popOverDisableEdgeDetection = (
+        <Popover
+            body={
+                <Menu>
+                    <Menu.List>
+                        <Menu.Item url='/'>Option 1</Menu.Item>
+                        <Menu.Item url='/'>Option 2</Menu.Item>
+                        <Menu.Item url='/'>Option 3</Menu.Item>
+                        <Menu.Item url='/'>Option 4</Menu.Item>
+                    </Menu.List>
+                </Menu>
+            }
+            control={<Icon glyph='cart' size='xl' />}
+            disableEdgeDetection />
+    );
+
     test('create Popover', () => {
         // popover
         let component = renderer.create(popOver);
@@ -92,15 +108,25 @@ describe('<Popover />', () => {
         expect(tree).toMatchSnapshot();
     });
 
+    test('popper is receiving disableEdgeDetection from popover', () => {
+        // disableEdgeDetection is defaulted to false
+        const popoverWithDetection = mount(popOver);
+        expect(popoverWithDetection.props().disableEdgeDetection).toBeFalsy();
+
+        // prop is correctly changed when set to true
+        const popoverWithoutDetection = mount(popOverDisableEdgeDetection);
+        expect(popoverWithoutDetection.props().disableEdgeDetection).toBeTruthy();
+    });
+
     test('handle document click to close popover', () => {
         const wrapper = mount(popOver);
 
         // click on popover to show
-        wrapper.find('div.fd-popper__control .sap-icon--cart').simulate('click');
+        wrapper.find('div.fd-popover__control .sap-icon--cart').simulate('click');
         expect(wrapper.state('isExpanded')).toBeTruthy();
 
         // click on popover to hide
-        wrapper.find('div.fd-popper__control .sap-icon--cart').simulate('click');
+        wrapper.find('div.fd-popover__control .sap-icon--cart').simulate('click');
         expect(wrapper.state('isExpanded')).toBeFalsy();
 
         // wrapper.instance().componentWillUnmount();
@@ -110,7 +136,7 @@ describe('<Popover />', () => {
         const wrapper = mount(popOver);
 
         // click on popover to show
-        wrapper.find('div.fd-popper__control .sap-icon--cart').simulate('click');
+        wrapper.find('div.fd-popover__control .sap-icon--cart').simulate('click');
         expect(wrapper.state('isExpanded')).toBeTruthy();
 
         // handle esc key
@@ -123,7 +149,7 @@ describe('<Popover />', () => {
         const wrapper = mount(popOver);
 
         // click on popover to show
-        wrapper.find('div.fd-popper__control .sap-icon--cart').simulate('click');
+        wrapper.find('div.fd-popover__control .sap-icon--cart').simulate('click');
         expect(wrapper.state('isExpanded')).toBeTruthy();
 
         // handle click on document
@@ -136,7 +162,7 @@ describe('<Popover />', () => {
         const wrapper = mount(popOverDisabled);
 
         // click on popover to show
-        wrapper.find('div.fd-popper__control .sap-icon--cart').simulate('click');
+        wrapper.find('div.fd-popover__control .sap-icon--cart').simulate('click');
         expect(wrapper.state('isExpanded')).toBeFalsy();
     });
 
@@ -149,11 +175,46 @@ describe('<Popover />', () => {
                     data-sample='Sample' />
             );
 
-            element.find('div.fd-popper__control .sap-icon--cart').simulate('click');
-
             expect(
-                element.find('.fd-popper__body').getDOMNode().attributes['data-sample'].value
+                element.find('.fd-popover').getDOMNode().attributes['data-sample'].value
             ).toBe('Sample');
+        });
+    });
+
+    describe('Callback handler', () => {
+        test('should dispatch the onClickOutside callback with the event', () => {
+            let f = jest.fn();
+            const element = mount(
+                <Popover
+                    body={<div />}
+                    control={<button id='test' />}
+                    onClickOutside={f} />
+
+            );
+
+            element.find('#test').simulate('click');
+
+            let event = new MouseEvent('mousedown', {});
+            document.dispatchEvent(event);
+
+            expect(f).toHaveBeenCalledTimes(1);
+        });
+        test('should dispatch the onEscapeKey callback with the event', () => {
+            let f = jest.fn();
+            const element = mount(
+                <Popover
+                    body={<div />}
+                    control={<button id='test' />}
+                    onEscapeKey={f} />
+
+            );
+
+            element.find('#test').simulate('click');
+
+            let event = new KeyboardEvent('keydown', { keyCode: 27 });
+            document.dispatchEvent(event);
+
+            expect(f).toHaveBeenCalledTimes(1);
         });
     });
 });

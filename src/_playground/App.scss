@@ -1,12 +1,11 @@
 $breakpoint-lg: 1280px;
 $breakpoint-md: 1024px;
 $breakpoint-sm: 600px;
-$fd-icons-path: '../../node_modules/fiori-fundamentals/scss/icons/';
-$fd-fonts-path: '../../node_modules/fiori-fundamentals/dist/fonts/';
-@import '~fiori-fundamentals/scss/all.scss';
+$fd-icons-path: '../../node_modules/fundamental-styles/scss/icons/';
+$fd-fonts-path: '../../node_modules/fundamental-styles/dist/fonts/';
+@import '~fundamental-styles/scss/fundamental-styles-ie11.scss';
 @import '~tocbot/src/scss/tocbot-core';
 @import '~tocbot/src/scss/tocbot-default-theme';
-@import './popper';
 
 $shell-color: #354A5F;
 $library-color: #61dafb;
@@ -110,49 +109,6 @@ $menu-spacing: 20px;
     }
 }
 
-.frDocs-Nav {
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: auto;
-    padding: 0.5rem 0 1rem;
-
-    &__list {
-        list-style: none;
-    }
-
-    &__headers {
-        color: #515559;
-        padding: 15px 20px;
-        display: block;
-        font-weight: 700;
-        font-size: 1.25rem;
-    }
-
-    &__item {
-        display: block;
-        margin-left: 1px;
-        color: #21262c;
-        font-size: 1rem;
-        position: relative;
-        padding: 13px 40px;
-        transition: background .15hs ease-in;
-
-        &:hover,
-        &:focus {
-            background-color: #fafafa;
-            color: #085caf;
-        }
-
-        &--active {
-            color: #32363A;
-            box-shadow: inset 6px 0 0 0 $library-color;
-            cursor: pointer;
-            background-color: #fff;
-            font-weight: 700;
-        }
-    }
-}
-
 .frDocs-Search {
     flex: 0 0 auto;
     padding: 15px 20px;
@@ -210,8 +166,8 @@ $menu-spacing: 20px;
     }
 
     &__tile-background {
-        background: #edeef0;
-        transition: background-color .25s;
+        background: #F3F4F5;
+        transition: background-color 0.25s;
     }
 
     &__separator {
@@ -263,7 +219,7 @@ $menu-spacing: 20px;
     }
 
     pre {
-        margin: 25px 0px;
+        margin: 25px 0;
         background-color: #fff !important;
         white-space: pre-wrap;
         white-space: -moz-pre-wrap;
@@ -283,6 +239,10 @@ $menu-spacing: 20px;
             display: block;
         }
     }
+}
+
+.frDocs-Properties__shape {
+    margin: 0 50px 30px;
 }
 
 // used to keep headings in view with the fixed header
@@ -307,7 +267,7 @@ h6 {
     }
 }
 
-// Fundamental React Component Overrides 
+// Fundamental React Component Overrides
 .fd-counter--notification {
     position: relative;
 }
@@ -345,17 +305,14 @@ h6 {
     padding-bottom: 10px;
 }
 
-.fd-side-nav.fd-side-nav--icons {
-    max-width: 65px;
+// possible addition to fundamental-styles fundamentals side nav component?
+.fd-side-nav {
+    overflow: auto;
 }
 
 .property-header {
     text-align: left;
     padding-right: 15px;
-}
-
-.fd-side-nav {
-    max-width: 250px;
 }
 
 .row {

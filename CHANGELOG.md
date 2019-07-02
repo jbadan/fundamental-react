@@ -2,6 +2,556 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0-rc.1"></a>
+# [0.7.0-rc.1](https://github.com/SAP/fundamental-react/compare/v0.7.0-rc.0...v0.7.0-rc.1) (2019-07-01)
+
+
+
+<a name="0.7.0-rc.0"></a>
+# [0.7.0-rc.0](https://github.com/SAP/fundamental-react/compare/v0.6.1...v0.7.0-rc.0) (2019-07-01)
+
+
+### Features
+
+* work needed to bring in self contained styles ([#632](https://github.com/SAP/fundamental-react/issues/632)) ([d27dfd4](https://github.com/SAP/fundamental-react/commit/d27dfd4))
+
+
+
+<a name="0.6.1"></a>
+## [0.6.1](https://github.com/SAP/fundamental-react/compare/v0.6.1-rc.2...v0.6.1) (2019-06-28)
+
+
+
+<a name="0.6.1-rc.2"></a>
+## [0.6.1-rc.2](https://github.com/SAP/fundamental-react/compare/v0.6.1-rc.1...v0.6.1-rc.2) (2019-06-28)
+
+
+
+<a name="0.6.1-rc.1"></a>
+## [0.6.1-rc.1](https://github.com/SAP/fundamental-react/compare/v0.6.1-rc.0...v0.6.1-rc.1) (2019-06-28)
+
+
+### Bug Fixes
+
+* revert react-dev-utils breaking changes dep bump ([#636](https://github.com/SAP/fundamental-react/issues/636)) ([545a4a7](https://github.com/SAP/fundamental-react/commit/545a4a7))
+
+
+
+<a name="0.6.1-rc.0"></a>
+## [0.6.1-rc.0](https://github.com/SAP/fundamental-react/compare/v0.6.0...v0.6.1-rc.0) (2019-06-28)
+
+
+
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.39...v0.6.0) (2019-06-27)
+
+
+
+<a name="0.6.0-rc.39"></a>
+# [0.6.0-rc.39](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.38...v0.6.0-rc.39) (2019-06-27)
+
+
+
+<a name="0.6.0-rc.38"></a>
+# [0.6.0-rc.38](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.37...v0.6.0-rc.38) (2019-06-27)
+
+
+### Bug Fixes
+
+* remove dist folder from git ([#633](https://github.com/SAP/fundamental-react/issues/633)) ([2fe8abc](https://github.com/SAP/fundamental-react/commit/2fe8abc))
+
+
+
+<a name="0.6.0-rc.37"></a>
+# [0.6.0-rc.37](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.36...v0.6.0-rc.37) (2019-06-27)
+
+
+
+<a name="0.6.0-rc.36"></a>
+# [0.6.0-rc.36](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.35...v0.6.0-rc.36) (2019-06-26)
+
+
+
+<a name="0.6.0-rc.35"></a>
+# [0.6.0-rc.35](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.34...v0.6.0-rc.35) (2019-06-25)
+
+
+
+<a name="0.6.0-rc.34"></a>
+# [0.6.0-rc.34](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.33...v0.6.0-rc.34) (2019-06-25)
+
+
+
+<a name="0.6.0-rc.33"></a>
+# [0.6.0-rc.33](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.32...v0.6.0-rc.33) (2019-06-24)
+
+
+
+<a name="0.6.0-rc.32"></a>
+# [0.6.0-rc.32](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.31...v0.6.0-rc.32) (2019-06-24)
+
+
+
+<a name="0.6.0-rc.31"></a>
+# [0.6.0-rc.31](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.30...v0.6.0-rc.31) (2019-06-20)
+
+
+
+<a name="0.6.0-rc.30"></a>
+# [0.6.0-rc.30](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.29...v0.6.0-rc.30) (2019-06-17)
+
+
+
+<a name="0.6.0-rc.29"></a>
+# [0.6.0-rc.29](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.28...v0.6.0-rc.29) (2019-06-17)
+
+
+
+<a name="0.6.0-rc.28"></a>
+# [0.6.0-rc.28](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.27...v0.6.0-rc.28) (2019-06-17)
+
+
+
+<a name="0.6.0-rc.27"></a>
+# [0.6.0-rc.27](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.26...v0.6.0-rc.27) (2019-06-14)
+
+
+
+<a name="0.6.0-rc.26"></a>
+# [0.6.0-rc.26](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.25...v0.6.0-rc.26) (2019-06-14)
+
+
+
+<a name="0.6.0-rc.25"></a>
+# [0.6.0-rc.25](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.24...v0.6.0-rc.25) (2019-06-13)
+
+
+
+<a name="0.6.0-rc.24"></a>
+# [0.6.0-rc.24](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.23...v0.6.0-rc.24) (2019-06-13)
+
+
+
+<a name="0.6.0-rc.23"></a>
+# [0.6.0-rc.23](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.22...v0.6.0-rc.23) (2019-06-13)
+
+
+
+<a name="0.6.0-rc.22"></a>
+# [0.6.0-rc.22](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.21...v0.6.0-rc.22) (2019-06-13)
+
+
+
+<a name="0.6.0-rc.21"></a>
+# [0.6.0-rc.21](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.20...v0.6.0-rc.21) (2019-06-12)
+
+
+
+<a name="0.6.0-rc.20"></a>
+# [0.6.0-rc.20](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.19...v0.6.0-rc.20) (2019-06-12)
+
+
+
+<a name="0.6.0-rc.19"></a>
+# [0.6.0-rc.19](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.18...v0.6.0-rc.19) (2019-06-12)
+
+
+
+<a name="0.6.0-rc.18"></a>
+# [0.6.0-rc.18](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.17...v0.6.0-rc.18) (2019-06-11)
+
+
+
+<a name="0.6.0-rc.17"></a>
+# [0.6.0-rc.17](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.16...v0.6.0-rc.17) (2019-06-11)
+
+
+
+<a name="0.6.0-rc.16"></a>
+# [0.6.0-rc.16](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.15...v0.6.0-rc.16) (2019-06-11)
+
+
+
+<a name="0.6.0-rc.15"></a>
+# [0.6.0-rc.15](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.14...v0.6.0-rc.15) (2019-06-10)
+
+
+
+<a name="0.6.0-rc.14"></a>
+# [0.6.0-rc.14](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.13...v0.6.0-rc.14) (2019-06-10)
+
+
+
+<a name="0.6.0-rc.13"></a>
+# [0.6.0-rc.13](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.11...v0.6.0-rc.13) (2019-06-10)
+
+
+### Bug Fixes
+
+* updated publish scripts to copy files after standard versioning ([#574](https://github.com/SAP/fundamental-react/issues/574)) ([7a9af94](https://github.com/SAP/fundamental-react/commit/7a9af94))
+
+
+### Features
+
+* removing lib from import statement ([#573](https://github.com/SAP/fundamental-react/issues/573)) ([52e2614](https://github.com/SAP/fundamental-react/commit/52e2614))
+
+
+
+<a name="0.6.0-rc.12"></a>
+# [0.6.0-rc.12](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.11...v0.6.0-rc.12) (2019-06-07)
+
+
+### Features
+
+* removing lib from import statement ([#573](https://github.com/SAP/fundamental-react/issues/573)) ([52e2614](https://github.com/SAP/fundamental-react/commit/52e2614))
+
+
+
+<a name="0.6.0-rc.11"></a>
+# [0.6.0-rc.11](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.10...v0.6.0-rc.11) (2019-06-07)
+
+
+### Features
+
+* switch to using Fundamental Styles repo ([#566](https://github.com/SAP/fundamental-react/issues/566)) ([66a7cec](https://github.com/SAP/fundamental-react/commit/66a7cec))
+
+
+
+<a name="0.6.0-rc.10"></a>
+# [0.6.0-rc.10](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.9...v0.6.0-rc.10) (2019-06-07)
+
+
+
+<a name="0.6.0-rc.9"></a>
+# [0.6.0-rc.9](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.8...v0.6.0-rc.9) (2019-06-07)
+
+
+
+<a name="0.6.0-rc.8"></a>
+# [0.6.0-rc.8](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.7...v0.6.0-rc.8) (2019-06-07)
+
+
+
+<a name="0.6.0-rc.7"></a>
+# [0.6.0-rc.7](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.6...v0.6.0-rc.7) (2019-06-07)
+
+
+
+<a name="0.6.0-rc.6"></a>
+# [0.6.0-rc.6](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.5...v0.6.0-rc.6) (2019-06-06)
+
+
+
+<a name="0.6.0-rc.5"></a>
+# [0.6.0-rc.5](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.4...v0.6.0-rc.5) (2019-06-06)
+
+
+
+<a name="0.6.0-rc.4"></a>
+# [0.6.0-rc.4](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.3...v0.6.0-rc.4) (2019-06-06)
+
+
+
+<a name="0.6.0-rc.3"></a>
+# [0.6.0-rc.3](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.2...v0.6.0-rc.3) (2019-06-06)
+
+
+
+<a name="0.6.0-rc.2"></a>
+# [0.6.0-rc.2](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.1...v0.6.0-rc.2) (2019-06-06)
+
+
+
+<a name="0.6.0-rc.1"></a>
+# [0.6.0-rc.1](https://github.com/SAP/fundamental-react/compare/v0.6.0-rc.0...v0.6.0-rc.1) (2019-06-06)
+
+
+
+<a name="0.6.0-rc.0"></a>
+# [0.6.0-rc.0](https://github.com/SAP/fundamental-react/compare/v0.5.4-rc.0...v0.6.0-rc.0) (2019-06-04)
+
+
+### Features
+
+* refactor Tile removing ProductTile component ([#548](https://github.com/SAP/fundamental-react/issues/548)) ([21613bd](https://github.com/SAP/fundamental-react/commit/21613bd))
+
+
+
+<a name="0.5.4-rc.0"></a>
+## [0.5.4-rc.0](https://github.com/SAP/fundamental-react/compare/v0.5.3...v0.5.4-rc.0) (2019-06-03)
+
+
+
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/SAP/fundamental-react/compare/v0.5.3-rc.1...v0.5.3) (2019-05-23)
+
+
+
+<a name="0.5.3-rc.1"></a>
+## [0.5.3-rc.1](https://github.com/SAP/fundamental-react/compare/v0.5.3-rc.0...v0.5.3-rc.1) (2019-05-23)
+
+
+### Bug Fixes
+
+* update onchange callback for searchinput ([#547](https://github.com/SAP/fundamental-react/issues/547)) ([7751b63](https://github.com/SAP/fundamental-react/commit/7751b63))
+
+
+
+<a name="0.5.3-rc.0"></a>
+## [0.5.3-rc.0](https://github.com/SAP/fundamental-react/compare/v0.5.2...v0.5.3-rc.0) (2019-05-22)
+
+
+### Bug Fixes
+
+* add disable edge detection to popover ([#546](https://github.com/SAP/fundamental-react/issues/546)) ([55381e5](https://github.com/SAP/fundamental-react/commit/55381e5))
+
+
+
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.9...v0.5.2) (2019-05-10)
+
+
+
+<a name="0.5.2-rc.9"></a>
+## [0.5.2-rc.9](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.8...v0.5.2-rc.9) (2019-05-09)
+
+
+### Bug Fixes
+
+* Forms;SideNav;TreeView: Make React.Children null safe ([#535](https://github.com/SAP/fundamental-react/issues/535)) ([76c13e1](https://github.com/SAP/fundamental-react/commit/76c13e1))
+
+
+
+<a name="0.5.2-rc.8"></a>
+## [0.5.2-rc.8](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.7...v0.5.2-rc.8) (2019-05-07)
+
+
+
+<a name="0.5.2-rc.7"></a>
+## [0.5.2-rc.7](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.6...v0.5.2-rc.7) (2019-04-26)
+
+
+### Bug Fixes
+
+* Implemented popover for multiInput ([#527](https://github.com/SAP/fundamental-react/issues/527)) ([3dfa24f](https://github.com/SAP/fundamental-react/commit/3dfa24f)), closes [fixes#1286](https://github.com/fixes/issues/1286)
+
+
+
+<a name="0.5.2-rc.6"></a>
+## [0.5.2-rc.6](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.5...v0.5.2-rc.6) (2019-04-22)
+
+
+### Bug Fixes
+
+* Use React.Children.toArray to prune null children in TabGroup  ([#517](https://github.com/SAP/fundamental-react/issues/517)) ([a79882f](https://github.com/SAP/fundamental-react/commit/a79882f))
+
+
+
+<a name="0.5.2-rc.5"></a>
+## [0.5.2-rc.5](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.4...v0.5.2-rc.5) (2019-04-20)
+
+
+
+<a name="0.5.2-rc.4"></a>
+## [0.5.2-rc.4](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.3...v0.5.2-rc.4) (2019-04-18)
+
+
+
+<a name="0.5.2-rc.3"></a>
+## [0.5.2-rc.3](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.2...v0.5.2-rc.3) (2019-04-17)
+
+
+
+<a name="0.5.2-rc.2"></a>
+## [0.5.2-rc.2](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.1...v0.5.2-rc.2) (2019-04-12)
+
+
+### Bug Fixes
+
+* Implement our SideNav Component and replace previous custom SideNav in docs ([#507](https://github.com/SAP/fundamental-react/issues/507)) ([84c41fe](https://github.com/SAP/fundamental-react/commit/84c41fe))
+
+
+
+<a name="0.5.2-rc.1"></a>
+## [0.5.2-rc.1](https://github.com/SAP/fundamental-react/compare/v0.5.2-rc.0...v0.5.2-rc.1) (2019-04-12)
+
+
+
+<a name="0.5.2-rc.0"></a>
+## [0.5.2-rc.0](https://github.com/SAP/fundamental-react/compare/v0.5.1...v0.5.2-rc.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* added onSelectItem callback to SideNav Component ([#511](https://github.com/SAP/fundamental-react/issues/511)) ([79e9d74](https://github.com/SAP/fundamental-react/commit/79e9d74))
+
+
+
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.18...v0.5.1) (2019-04-11)
+
+
+
+<a name="0.5.1-rc.18"></a>
+## [0.5.1-rc.18](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.17...v0.5.1-rc.18) (2019-04-08)
+
+
+
+<a name="0.5.1-rc.17"></a>
+## [0.5.1-rc.17](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.16...v0.5.1-rc.17) (2019-04-05)
+
+
+### Bug Fixes
+
+* Popover popper styles consumed from fiori-fundamentals ([#504](https://github.com/SAP/fundamental-react/issues/504)) ([4fbf063](https://github.com/SAP/fundamental-react/commit/4fbf063))
+
+
+
+<a name="0.5.1-rc.16"></a>
+## [0.5.1-rc.16](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.15...v0.5.1-rc.16) (2019-04-05)
+
+
+
+<a name="0.5.1-rc.15"></a>
+## [0.5.1-rc.15](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.14...v0.5.1-rc.15) (2019-04-05)
+
+
+
+<a name="0.5.1-rc.14"></a>
+## [0.5.1-rc.14](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.13...v0.5.1-rc.14) (2019-04-04)
+
+
+### Bug Fixes
+
+* add time picker localized text shape ([#496](https://github.com/SAP/fundamental-react/issues/496)) ([16c3c64](https://github.com/SAP/fundamental-react/commit/16c3c64))
+
+
+
+<a name="0.5.1-rc.13"></a>
+## [0.5.1-rc.13](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.12...v0.5.1-rc.13) (2019-04-04)
+
+
+### Bug Fixes
+
+* added localizedText prop to time ([#495](https://github.com/SAP/fundamental-react/issues/495)) ([ce47bff](https://github.com/SAP/fundamental-react/commit/ce47bff))
+
+
+
+<a name="0.5.1-rc.12"></a>
+## [0.5.1-rc.12](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.11...v0.5.1-rc.12) (2019-04-03)
+
+
+
+<a name="0.5.1-rc.11"></a>
+## [0.5.1-rc.11](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.10...v0.5.1-rc.11) (2019-04-03)
+
+
+### Bug Fixes
+
+* make all heading elements customizable ([#497](https://github.com/SAP/fundamental-react/issues/497)) ([deaa643](https://github.com/SAP/fundamental-react/commit/deaa643))
+
+
+
+<a name="0.5.1-rc.10"></a>
+## [0.5.1-rc.10](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.9...v0.5.1-rc.10) (2019-04-03)
+
+
+### Bug Fixes
+
+* added localized text shape to calendar ([#494](https://github.com/SAP/fundamental-react/issues/494)) ([d52693d](https://github.com/SAP/fundamental-react/commit/d52693d))
+
+
+
+<a name="0.5.1-rc.9"></a>
+## [0.5.1-rc.9](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.8...v0.5.1-rc.9) (2019-03-29)
+
+
+### Bug Fixes
+
+* added localized text shape for multi input component ([#488](https://github.com/SAP/fundamental-react/issues/488)) ([bbed4d5](https://github.com/SAP/fundamental-react/commit/bbed4d5))
+* added localized text shape for shellbar ([#489](https://github.com/SAP/fundamental-react/issues/489)) ([c6fd7a5](https://github.com/SAP/fundamental-react/commit/c6fd7a5))
+* Added localized text shape to alert ([#484](https://github.com/SAP/fundamental-react/issues/484)) ([2f192b7](https://github.com/SAP/fundamental-react/commit/2f192b7))
+* added localized text shape to input group ([#486](https://github.com/SAP/fundamental-react/issues/486)) ([b28712e](https://github.com/SAP/fundamental-react/commit/b28712e))
+* added localized text shape to Modal ([#487](https://github.com/SAP/fundamental-react/issues/487)) ([e671f78](https://github.com/SAP/fundamental-react/commit/e671f78))
+* localizedText shape for pagination ([#485](https://github.com/SAP/fundamental-react/issues/485)) ([c107a11](https://github.com/SAP/fundamental-react/commit/c107a11))
+
+
+
+<a name="0.5.1-rc.8"></a>
+## [0.5.1-rc.8](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.7...v0.5.1-rc.8) (2019-03-29)
+
+
+### Bug Fixes
+
+* Added description to localized text property table ([#490](https://github.com/SAP/fundamental-react/issues/490)) ([4f1cb22](https://github.com/SAP/fundamental-react/commit/4f1cb22))
+
+
+
+<a name="0.5.1-rc.7"></a>
+## [0.5.1-rc.7](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.6...v0.5.1-rc.7) (2019-03-29)
+
+
+### Bug Fixes
+
+* updated calendar tests to work on all dates ([#492](https://github.com/SAP/fundamental-react/issues/492)) ([bced70a](https://github.com/SAP/fundamental-react/commit/bced70a))
+
+
+
+<a name="0.5.1-rc.6"></a>
+## [0.5.1-rc.6](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.5...v0.5.1-rc.6) (2019-03-28)
+
+
+### Bug Fixes
+
+* Renamed popper CSS classes ([#478](https://github.com/SAP/fundamental-react/issues/478)) ([ca8df7d](https://github.com/SAP/fundamental-react/commit/ca8df7d))
+
+
+
+<a name="0.5.1-rc.5"></a>
+## [0.5.1-rc.5](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.4...v0.5.1-rc.5) (2019-03-28)
+
+
+### Bug Fixes
+
+* Added propertyTable formatting for localizedText PropType ([#477](https://github.com/SAP/fundamental-react/issues/477)) ([0dda113](https://github.com/SAP/fundamental-react/commit/0dda113))
+
+
+
+<a name="0.5.1-rc.4"></a>
+## [0.5.1-rc.4](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.3...v0.5.1-rc.4) (2019-03-25)
+
+
+
+<a name="0.5.1-rc.3"></a>
+## [0.5.1-rc.3](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.2...v0.5.1-rc.3) (2019-03-25)
+
+
+
+<a name="0.5.1-rc.2"></a>
+## [0.5.1-rc.2](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.1...v0.5.1-rc.2) (2019-03-20)
+
+
+
+<a name="0.5.1-rc.1"></a>
+## [0.5.1-rc.1](https://github.com/SAP/fundamental-react/compare/v0.5.1-rc.0...v0.5.1-rc.1) (2019-03-20)
+
+
+
+<a name="0.5.1-rc.0"></a>
+## [0.5.1-rc.0](https://github.com/SAP/fundamental-react/compare/v0.5.0...v0.5.1-rc.0) (2019-03-19)
+
+
+### Bug Fixes
+
+* init Stylelint for CSS ([#472](https://github.com/SAP/fundamental-react/issues/472)) ([ac7a53c](https://github.com/SAP/fundamental-react/commit/ac7a53c))
+
+
+
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/SAP/fundamental-react/compare/v0.5.0-rc.0...v0.5.0) (2019-03-17)
+
+
+
 <a name="0.5.0-rc.0"></a>
 # [0.5.0-rc.0](https://github.com/SAP/fundamental-react/compare/v0.4.2-rc.3...v0.5.0-rc.0) (2019-03-15)
 

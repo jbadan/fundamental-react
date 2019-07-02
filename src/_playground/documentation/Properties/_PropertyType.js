@@ -1,7 +1,9 @@
+import { getShapeTitle } from '../utils/getShapeTitle';
+import { makeSafeId } from '../utils/makeSafeId';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const PropertyType = ({ prop }) => {
+const PropertyType = ({ prop, propName, componentName, topLevel }) => {
     const typeChecker = prop.typeChecker;
 
     switch (prop.typeName) {
@@ -11,7 +13,7 @@ const PropertyType = ({ prop }) => {
                 <React.Fragment>
                     <div>{prop.typeName}</div>
                     {typeChecker.typeChecker ? (
-                        <PropertyType prop={typeChecker} />
+                        <PropertyType prop={typeChecker} propName={propName} />
                     ) : (
                         <div>{`(${typeChecker.typeName})`}</div>
                     )}
@@ -22,7 +24,7 @@ const PropertyType = ({ prop }) => {
                 <React.Fragment>
                     <div>{prop.typeName}</div>
                     {typeChecker.typeChecker ? (
-                        <PropertyType prop={typeChecker} />
+                        <PropertyType prop={typeChecker} propName={propName} />
                     ) : (
                         <div>{`(${typeChecker.name || typeChecker.displayName})`}</div>
                     )}
@@ -38,7 +40,8 @@ const PropertyType = ({ prop }) => {
         case 'oneOfType':
             const types = typeChecker
                 .map((t, i) =>
-                    t.typeChecker ? <PropertyType key={i} prop={t} /> : <span key={i}>{`(${t.typeName})`}</span>
+                    t.typeChecker ? <PropertyType key={i} prop={t}
+                        propName={propName} /> : <span key={i}>{`(${t.typeName})`}</span>
                 ).reduce((prev, curr) => [prev, ', ', curr]);
             return (
                 <React.Fragment>
@@ -46,14 +49,20 @@ const PropertyType = ({ prop }) => {
                     [{types}]
                 </React.Fragment>
             );
-        case 'shape':
-            return <div>{prop.typeName} ({`\{${Object.keys(prop.typeChecker).sort().join(', ')}\}`})</div>;
         case 'range':
             const values = Object.keys(typeChecker).map(key => `${key}: ${typeChecker[key]}`);
             return (
                 <React.Fragment>
                     <div>{prop.typeName}</div>
                     <div>{`(${values.join('; ')})`}</div>
+                </React.Fragment>
+            );
+        case 'shape':
+        case 'i18n':
+            return (
+                <React.Fragment>
+                    <div>{prop.typeName}</div>
+                    {topLevel && <div>(<a href={`#${makeSafeId(getShapeTitle(componentName, propName, prop.typeName))}`}>details</a>)</div>}
                 </React.Fragment>
             );
         default:
@@ -64,7 +73,10 @@ const PropertyType = ({ prop }) => {
 PropertyType.displayName = 'PropertyType';
 
 PropertyType.propTypes = {
-    prop: PropTypes.any
+    componentName: PropTypes.string,
+    prop: PropTypes.any,
+    propName: PropTypes.string,
+    topLevel: PropTypes.bool
 };
 
 export default PropertyType;
