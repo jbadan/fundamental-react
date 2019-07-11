@@ -5,9 +5,6 @@ import { Button, ButtonGroup } from '../';
 import { ComponentPage, Example, Playground, Separator } from '../_playground';
 
 export const ButtonComponent = () => {
-    const clickBtnHandler = btn => {
-        alert(`You clicked the ${btn} Button`);
-    };
 
     return (
         <ComponentPage
@@ -28,11 +25,12 @@ export const ButtonComponent = () => {
                     There may be more than one on the page.`}
                 title='Button Options'>
                 <div className='fd-doc__margin--button'>
-                    <Button onClick={() => clickBtnHandler('Emphasized')} option='emphasized'>
-                        Emphasized Button
-                    </Button>
-                    <Button onClick={() => clickBtnHandler('Regular')}>Regular Button</Button>
-                    <Button onClick={() => clickBtnHandler('Light')} option='light'>Light Button</Button>
+                    <Button type='Default'>Button</Button>
+                    <Button disabled>Button</Button>
+                    <Button type='Transparent'>Button</Button>
+                    <Button type='Positive'>Button</Button>
+                    <Button type='Negative'>Button</Button>
+                    <Button type='Emphasized'>Button</Button>
                 </div>
             </Example>
 

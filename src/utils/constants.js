@@ -44,10 +44,11 @@ export const BUTTON_OPTIONS = [
     'light'
 ];
 export const BUTTON_TYPES = [
-    'standard',
-    'positive',
-    'negative',
-    'medium'
+    'Default',
+    'Transparent',
+    'Positive',
+    'Negative',
+    'Emphasized'
 ];
 
 export const FORM_MESSAGE_TYPES = [
